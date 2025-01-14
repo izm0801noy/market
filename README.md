@@ -1,12 +1,11 @@
 # market  
   
 ## 環境構築  
-Dokerビルド   　
+Dokerビルド<br>
 1.git cloneリンク git@github.com:izm0801noy/market.git  
-  
 2.docker-compose up d -build  
   
-Laravel環境構築     　
+Laravel環境構築<br>
 1.docer-compose exec php bash  
 2.composer install  
 3..env.exampleファイルから.envを作成し、環境変数を変更  
