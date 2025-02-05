@@ -22,6 +22,5 @@ class PurchaseHistoryFactory extends Factory
             'created_at' => now(),
             'updated_at' => now(),
         ];
-        ];
     }
 }

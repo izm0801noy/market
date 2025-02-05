@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ログイン - CoachTech</title>
-    <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/auth/login.css') }}">
 </head>
 <body>
     <div class="login-screen">
         <header class="login-screen__header">
-            <img src="{{ asset('src/public/images/logo.svg') }}" alt="CoachTech" class="login-screen__logo">
+            <img src="{{ asset('images/logo.svg') }}" alt="CoachTech" class="login-screen__logo">
         </header>
 
         <main class="login-screen__content">

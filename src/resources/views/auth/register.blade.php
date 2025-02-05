@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>会員登録 - COACHTECH</title>
+    <link rel="stylesheet" href="{{ asset('css/auth/register.css') }}">
+</head>
+<body>
+    <header class="register-screen__header">
+        <img src="{{ asset('images/logo.svg') }}" alt="COACHTECH" class="register-screen__logo">
+    </header>
+
+    <main class="register-screen__container">
+        <h1 class="register-screen__title">会員登録</h1>
+        
+        <form method="POST" action="{{ route('register') }}" class="register-screen__form">
+            @csrf
+            
+            <div class="register-screen__form-group">
+                <label for="username" class="register-screen__label">ユーザー名</label>
+                <input type="text" id="username" name="username" class="register-screen__input" required>
+            </div>
+
+            <div class="register-screen__form-group">
+                <label for="email" class="register-screen__label">メールアドレス</label>
+                <input type="email" id="email" name="email" class="register-screen__input" required>
+            </div>
+
+            <div class="register-screen__form-group">
+                <label for="password" class="register-screen__label">パスワード</label>
+                <input type="password" id="password" name="password" class="register-screen__input" required>
+            </div>
+
+            <div class="register-screen__form-group">
+                <label for="password_confirmation" class="register-screen__label">確認用パスワード</label>
+                <input type="password" id="password_confirmation" name="password_confirmation" class="register-screen__input" required>
+            </div>
+
+            <button type="submit" class="register-screen__button">登録する</button>
+        </form>
+
+        <a href="{{ route('login') }}" class="register-screen__login-link">ログインはこちら</a>
+    </main>
+</body>
+</html>

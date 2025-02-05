@@ -13,4 +13,4 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('/login', [AuthController::class, 'index']);
+Route::get('/', [AuthController::class, 'index']);
