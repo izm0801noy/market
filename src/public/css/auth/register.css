@@ -90,6 +90,12 @@ body {
     text-decoration: underline;
 }
 
+.register-screen__error {
+    color: #FF0000;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
 @media (max-width: 768px) {
     .register-screen__container {
         padding: 0 16px;

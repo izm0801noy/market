@@ -91,3 +91,9 @@ body {
     text-decoration: none;
     margin-top: 20px;
 }
+
+.login-screen__error {
+    color: #FF0000;
+    font-size: 14px;
+    margin-top: 5px;
+}
