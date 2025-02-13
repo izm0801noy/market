@@ -1,0 +1,167 @@
+.header__container {
+    max-width: 1400px;
+    /* PC (1400px以上) でも中央配置 */
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+
+.header__logo img {
+    height: 40px;
+    width: auto;
+}
+
+/* 検索ボックス */
+.header__search {
+    flex: 1;
+    margin: 0 2rem;
+}
+
+.header__search-input {
+    width: 100%;
+    max-width: 500px;
+    padding: 0.5rem 1rem;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+/* ナビゲーション */
+.header__nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.header__nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+/* 出品リンク専用のスタイル */
+.header__nav-link--highlight {
+    padding: 0.5rem 1.5rem;
+    /* 内側の余白を確保 */
+    border: 2px solid white;
+    /* 白色のボーダー */
+    color: black;
+    /* 文字色を黒に */
+    background-color: white;
+    /* 余白の背景色を白に */
+    border-radius: 4px;
+    /* 角を丸くする */
+    transition: background 0.3s, color 0.3s, border 0.3s;
+}
+
+
+.header__nav-link:hover {
+    color: #ff4d4d;
+}
+
+/* ================================
+   メインコンテンツ
+================================ */
+.main {
+    max-width: 1400px;
+    /* PCの大きさに合わせて調整 */
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+/* タブメニュー */
+.main__tabs {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 2rem;
+}
+
+.main__tab {
+    padding: 1rem 2rem;
+    text-decoration: none;
+    color: #666;
+    font-size: 0.9rem;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+.main__tab--active {
+    color: #ff4d4d;
+    border-bottom: 2px solid #ff4d4d;
+}
+
+/* ================================
+   商品一覧（グリッドレイアウト）
+================================ */
+.main__products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    /* PC/タブレット対応 */
+    gap: 2rem;
+}
+
+/* 商品カード */
+.product {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* 商品画像 */
+.product__image {
+    aspect-ratio: 1;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 0.9rem;
+}
+
+/* 商品名 */
+.product__name {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+/* ================================
+   レスポンシブ対応
+================================ */
+
+/* タブレット（768px 以上 850px 以下）のレイアウト調整 */
+@media (min-width: 768px) and (max-width: 850px) {
+    .header__container {
+        max-width: 850px;
+        padding: 0 1rem;
+    }
+
+    .main {
+        max-width: 850px;
+        padding: 0 1rem;
+    }
+
+    .main__products {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        /* 余白調整 */
+        gap: 1.5rem;
+    }
+}
+
+/* PCの最大サイズ（1400px - 1540px） */
+@media (min-width: 1400px) and (max-width: 1540px) {
+    .header__container {
+        max-width: 1540px;
+        padding: 0 2rem;
+    }
+
+    .main {
+        max-width: 1540px;
+        padding: 0 2rem;
+    }
+
+    .main__products {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        /* 余裕を持たせる */
+    }
+}

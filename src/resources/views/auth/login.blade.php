@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ログイン - CoachTech</title>
-    <link rel="stylesheet" href="{{ asset('css/auth/login.css') }}">
-</head>
-<body>
-    <div class="login-screen">
-        <header class="login-screen__header">
-            <img src="{{ asset('images/logo.svg') }}" alt="CoachTech" class="login-screen__logo">
-        </header>
+@extends('layouts.app')
 
-        <main class="login-screen__content">
+@section('title', 'ログイン')
+
+@section('CSS')
+    <link rel="stylesheet" href="{{ asset('css/auth/login.css') }}">
+@endsection
+
+@section('content')
+<main class="login-screen__content">
             <h1 class="login-screen__title">ログイン</h1>
             
             <form action="{{ route('login') }}" method="POST" class="login-screen__form">
@@ -35,6 +30,5 @@
             </form>
             <a href="{{ route('register') }}" class="login-screen__register-link">会員登録はこちら</a>
         </main>
-    </div>
-</body>
-</html>
+
+@endsection
