@@ -1,0 +1,262 @@
+/* 🔹 ヘッダーのスタイル */
+.header__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+
+/* 🔹 検索ボックス */
+.header__search {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin: 0 2rem;
+}
+
+.header__search-input {
+    width: 100%;
+    max-width: 500px;
+    padding: 0.5rem 1rem;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+/* 🔹 ナビゲーション */
+.header__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.header__nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    display: inline-block;
+}
+
+.header__nav-link--highlight {
+    padding: 0.5rem 1.5rem;
+    border: 2px solid white;
+    color: black;
+    background-color: white;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background 0.3s, color 0.3s, border 0.3s;
+}
+
+.header__nav-link--highlight:hover {
+    background-color: #f5f5f5;
+    color: black;
+    border-color: #ddd;
+}
+
+/* 🔹 商品出品ページ */
+.product-submission {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 15px;
+}
+
+.product-submission__title {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* 🔹 フォームスタイル */
+.product-submission__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 🔹 セクション */
+.product-submission__section {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+.product-submission__section-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* 🔹 フォームの入力フィールド */
+.product-submission__input,
+.product-submission__select,
+.product-submission__textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.product-submission__textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* 🔹 画像アップロード */
+.product-submission__image-upload {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.product-submission__image-box {
+    width: 100%;
+    height: 200px;
+    border: 1px dashed #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.product-submission__image-btn {
+    display: inline-block;
+    background-color: #ff6b6b;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.product-submission__image-input {
+    display: none;
+}
+
+/* 🔹 カテゴリー選択 */
+.product-submission__category-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.product-submission__category-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: white;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* 🔹 選択時のスタイル */
+.product-submission__category-btn input {
+    display: none;
+}
+
+.product-submission__category-btn input:checked+label {
+    background-color: #ff6b6b;
+    color: white;
+}
+
+/* 🔹 価格入力 */
+.product-submission__price-input {
+    position: relative;
+}
+
+.product-submission__currency-symbol {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.product-submission__price-input input {
+    padding-left: 25px;
+}
+
+/* 🔹 送信ボタン */
+.product-submission__actions {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.product-submission__submit-btn {
+    background-color: #ff6b6b;
+    color: #fff;
+    border: none;
+    padding: 12px 0;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.product-submission__submit-btn:hover {
+    background-color: #ff5252;
+}
+
+/* 🔹 エラーメッセージのデザイン */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* 🔹 レスポンシブ対応 */
+/* PC（1400px以上）のレイアウト維持 */
+@media (min-width: 1400px) and (max-width: 1540px) {
+    .product-submission {
+        max-width: 900px;
+    }
+}
+
+/* タブレット（768px - 850px） */
+@media (max-width: 850px) {
+    .header__container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .header__search {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .product-submission {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .product-submission__image-box {
+        height: 180px;
+    }
+
+    .product-submission__category-buttons {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+    }
+
+    .product-submission__category-btn {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+
+    .product-submission__price-input input {
+        font-size: 14px;
+    }
+
+    .product-submission__submit-btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
