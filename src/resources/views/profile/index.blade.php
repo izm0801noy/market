@@ -1,72 +1,43 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ユーザープロフィール</title>
-    <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
-</head>
-<body>
-    <header class="header">
-        <div class="header__content">
-            <img src="{{ asset('images/logo.png') }}" alt="Logo" class="header__logo">
-            <div class="header__search-box">
-                <input type="text" placeholder="なにをお探しですか？" class="header__search-input">
-            </div>
-            <div class="header__links">
-                <a href="#" class="header__link">ログアウト</a>
-                <a href="#" class="header__link">マイページ</a>
-                <a href="#" class="header__link">出品</a>
-            </div>
-        </div>
-    </header>
+@extends('layouts.app')
 
-    <main class="profile__container">
-        <div class="profile__section">
-            <div class="profile__header">
-                <div class="profile__image">
-                    <img src="{{ $user->profile_image ?? asset('images/default-avatar.png') }}" alt="プロフィール画像">
-                </div>
-                <div class="profile__info">
-                    <h1 class="profile__username">{{ $user->name }}</h1>
-                    <a href="{{ route('profile.edit') }}" class="profile__edit-button">プロフィール編集</a>
-                </div>
-            </div>
-        </div>
+@section('title', 'マイページ')
 
-        <!-- タブメニュー -->
-        <div class="profile__tabs">
-            <input type="radio" id="tab-listed" name="tab-group" class="profile__tab-radio" checked>
-            <label for="tab-listed" class="profile__tab-label">出品した商品</label>
+@section('CSS')
+    <link rel="stylesheet" href="{{ asset('css/profiles/index.css') }}">
+@endsection
 
-            <input type="radio" id="tab-purchased" name="tab-group" class="profile__tab-radio">
-            <label for="tab-purchased" class="profile__tab-label">購入した商品</label>
-        </div>
+@section('search')
+<nav class="header__nav">
+    <div class="header__search">
+        <input type="text" placeholder="なにをお探しですか？" class="header__search-input">
+    </div>
 
-        <!-- タブの中身 -->
-        <div class="profile__tab-content">
-            <div class="profile__products-grid profile__tab-panel" id="listed-items">
-                @foreach($listedItems as $item)
-                <div class="profile__product-card">
-                    <div class="profile__product-image">
-                        <img src="{{ $item->image_url ?? asset('images/placeholder.png') }}" alt="{{ $item->name }}">
-                    </div>
-                    <div class="profile__product-name">{{ $item->name }}</div>
-                </div>
-                @endforeach
-            </div>
+    @if (Auth::check())
+        <form action="{{ route('logout') }}" method="POST" class="header__nav-form">
+            @csrf
+            <button type="submit" class="header__nav-button">ログアウト</button>
+        </form>
+        <a href="/mypage" class="header__nav-link">マイページ</a>
+        <a href="/cart" class="header__nav-link header__nav-link--highlight">出品</a>
+    @endif
+</nav>
+@endsection
 
-            <div class="profile__products-grid profile__tab-panel" id="purchased-items">
-                @foreach($purchasedItems as $item)
-                <div class="profile__product-card">
-                    <div class="profile__product-image">
-                        <img src="{{ $item->image_url ?? asset('images/placeholder.png') }}" alt="{{ $item->name }}">
-                    </div>
-                    <div class="profile__product-name">{{ $item->name }}</div>
-                </div>
-                @endforeach
-            </div>
-        </div>
-    </main>
-</body>
-</html>
+@section('content')
+<main class="profile">
+    <div class="profile__image">
+        <img src="{{ $user->profile_image ?? asset('images/default-avatar.png') }}" alt="プロフィール画像" class="profile__image-img">
+    </div>
+    <button class="profile__edit-button">画像を選択する</button>
+
+    <form action="{{ route('profile.update') }}" method="POST" class="profile__form">
+        @csrf
+        <input type="text" name="name" placeholder="ユーザー名" value="{{ $user->name }}">
+        <input type="text" name="postal_code" placeholder="郵便番号">
+        <input type="text" name="address" placeholder="住所">
+        <input type="text" name="building" placeholder="建物名">
+        <button type="submit" class="profile__form-submit">更新する</button>
+    </form>
+</main>
+
+@endsection

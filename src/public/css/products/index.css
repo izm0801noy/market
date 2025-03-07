@@ -13,9 +13,23 @@
     width: auto;
 }
 
+/* ヘッダーのコンテナ */
+.header__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* 全体を横並びに配置 */
+    padding: 0 1rem;
+}
+
 /* 検索ボックス */
 .header__search {
     flex: 1;
+    display: flex;
+    justify-content: center;
+    /* 検索ボックスを中央配置 */
     margin: 0 2rem;
 }
 
@@ -32,32 +46,64 @@
 .header__nav {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    justify-content: space-between;
+    /* 左：検索 / 右：ナビゲーション */
+    width: 100%;
 }
 
+/* ナビゲーションリンク */
 .header__nav-link {
     color: white;
     text-decoration: none;
     font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    display: inline-block;
 }
 
-/* 出品リンク専用のスタイル */
+/* 出品ボタンのデザイン（背景を白に） */
 .header__nav-link--highlight {
     padding: 0.5rem 1.5rem;
-    /* 内側の余白を確保 */
     border: 2px solid white;
-    /* 白色のボーダー */
+    /* 白のボーダー */
     color: black;
-    /* 文字色を黒に */
+    /* 文字色を黒 */
     background-color: white;
-    /* 余白の背景色を白に */
+    /* 背景を白 */
     border-radius: 4px;
-    /* 角を丸くする */
+    font-weight: bold;
     transition: background 0.3s, color 0.3s, border 0.3s;
 }
 
+/* ホバー時のスタイル */
+.header__nav-link--highlight:hover {
+    background-color: #f5f5f5;
+    /* 少しグレーの白 */
+    color: black;
+    border-color: #ddd;
+}
 
-.header__nav-link:hover {
+/* ログアウトボタンのデザイン統一 */
+.header__nav-form {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.header__nav-form button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 0.9rem;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    display: inline-block;
+}
+
+/* ホバー時のスタイル */
+.header__nav-link:hover,
+.header__nav-form button:hover {
     color: #ff4d4d;
 }
 
@@ -78,18 +124,24 @@
     margin-bottom: 2rem;
 }
 
+/* 未選択のタブ（通常状態） */
 .main__tab {
     padding: 1rem 2rem;
     text-decoration: none;
-    color: #666;
+    color: #5F5F5F;
+    /* 未選択のタブはグレー */
     font-size: 0.9rem;
     transition: color 0.3s, border-bottom 0.3s;
 }
 
+/* 選択中のタブ（アクティブ） */
 .main__tab--active {
-    color: #ff4d4d;
-    border-bottom: 2px solid #ff4d4d;
+    color: #FF0000 !important;
+    /* 選択中のタブは赤 */
+    border-bottom: 2px solid #FF0000;
 }
+
+
 
 /* ================================
    商品一覧（グリッドレイアウト）
@@ -123,6 +175,58 @@
 .product__name {
     font-size: 0.9rem;
     color: #333;
+}
+
+.main__products {
+    display: flex;
+    /* 横並びにする */
+    flex-wrap: wrap;
+    /* 画面サイズに応じて折り返し */
+    gap: 20px;
+    /* アイテム間の余白を調整 */
+    justify-content: center;
+    /* 中央揃え */
+    padding: 20px;
+}
+
+.product {
+    width: 220px;
+    /* 商品のカード幅 */
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    text-align: center;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    /* 影をつける */
+}
+
+.product__image img {
+    width: 100%;
+    /* 画像をカード幅いっぱいにする */
+    height: auto;
+    max-height: 200px;
+    /* 最大高さを制限 */
+    object-fit: cover;
+    /* 画像を中央でトリミング */
+    border-radius: 5px;
+    /* 角を少し丸く */
+}
+
+.product__name {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.product__price {
+    font-size: 14px;
+    color: #333;
+}
+
+.product__condition {
+    font-size: 12px;
+    color: gray;
 }
 
 /* ================================

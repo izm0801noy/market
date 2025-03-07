@@ -19,7 +19,7 @@ class CreateItemsTable extends Migration
             $table->integer('price');
             $table->text('description')->nullable();
             $table->text('img_url')->nullable();
-            $table->enum('condition', ['new', 'used', 'refurbished'])->nullable();
+            $table->string('condition', 255)->nullable();
             $table->timestamps();
         });
     }

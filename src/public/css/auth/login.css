@@ -97,3 +97,61 @@ body {
     font-size: 14px;
     margin-top: 5px;
 }
+
+@media screen and (max-width: 1024px) {
+    .login-screen__content {
+        width: 80%;
+        max-width: 600px;
+        top: 150px;
+    }
+
+    .login-screen__title {
+        font-size: 32px;
+    }
+
+    .login-screen__label {
+        font-size: 20px;
+    }
+
+    .login-screen__input {
+        height: 45px;
+        font-size: 16px;
+    }
+
+    .login-screen__button {
+        width: 60%;
+        height: 55px;
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .login-screen__content {
+        width: 90%;
+        max-width: 480px;
+        top: 120px;
+    }
+
+    .login-screen__title {
+        font-size: 28px;
+    }
+
+    .login-screen__label {
+        font-size: 18px;
+    }
+
+    .login-screen__input {
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .login-screen__button {
+        width: 70%;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .login-screen__register-link {
+        font-size: 18px;
+    }
+}

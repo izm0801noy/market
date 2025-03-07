@@ -7,6 +7,8 @@ use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\LoginRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash; 
+use Illuminate\Support\Facades\Auth;
+
 
 class AuthController extends Controller
 {
@@ -20,7 +22,7 @@ class AuthController extends Controller
         $validated = $request->validated();
 
         $user = User::create([
-            'name' => $validated['name'],
+            'name' => $validated['username'],
             'email' => $validated['email'],
             'password' => Hash::make($validated['password']), 
         ]);
@@ -39,5 +41,12 @@ class AuthController extends Controller
         }
 
         return redirect()->route('home');
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout(); // ユーザーをログアウト
+
+               return redirect('/'); // ログアウト後のリダイレクト先
     }
 }
